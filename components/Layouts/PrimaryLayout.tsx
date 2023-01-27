@@ -12,7 +12,7 @@ const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({children}) => {
       </Head>
       <div>
         <Navbar isLoading={false} isLoggedIn={true} />
-        <main className="flex flex-col h-screen justify-between">{children}</main>
+        <main className="flex flex-col h-screen justify-between bg-gray-500">{children}</main>
         <Footer />
       </div>
     </>

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TodosList, { TodosListProps } from './TodosList';
-// import { mockBaseTemplateProps } from './BaseTemplate.mocks';
+import TodosList, { TodoListProps } from './TodosList';
+import { mockTodoListProps } from './TodosList.mock';
 
 export default {
   title: 'Components/TodosList',
@@ -8,21 +8,26 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof TodosList>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof TodosList> = (args) => (
   <TodosList{...args} />
 );
 
-export const Base = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const AllDone = Template.bind({});
+AllDone.args = {
+  ...mockTodoListProps.AllDone,
+} as TodoListProps;
 
-Base.args = {
-  ...mockBaseTemplateProps.base,
-} as TodosListProps;
+export const NotDone = Template.bind({});
+NotDone.args = {
+  ...mockTodoListProps.NotDone,
+} as TodoListProps;
 
-export const Alt = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const SomeDone = Template.bind({});
+SomeDone.args = {
+  ...mockTodoListProps.SomeDone,
+} as TodoListProps;
 
-Alt.args = {
-  ...mockBaseTemplateProps.alt,
-} as TodosListProps;
+export const NoTodos = Template.bind({});
+NoTodos.args = {
+  ...mockTodoListProps.NoTodos,
+} as TodoListProps;
