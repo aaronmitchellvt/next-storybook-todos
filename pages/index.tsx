@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Navbar from '../components/Navbar/Navbar'
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <Navbar isLoading={false} isLoggedIn={true} />
         <h1 className='bg-green-600'>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
