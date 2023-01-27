@@ -4,7 +4,7 @@ export interface IBaseTemplate {
 }
 
 const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
-  return <div>{sampleTextProp}</div>;
+  return <div className="bg-green-700">{sampleTextProp}</div>;
 };
 
 export default BaseTemplate;
