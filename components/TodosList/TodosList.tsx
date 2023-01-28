@@ -2,7 +2,8 @@ import { FC } from "react";
 import { TodoItemProps } from "../TodoItem/TodoItem";
 
 export interface TodoListProps {
-  todos: Array<React.FC<TodoItemProps>>;
+  todos: Array<any>
+  // todos: Array<React.FC<TodoItemProps>>;
 }
 
 const TodosList: React.FC<TodoListProps> = ({ todos }) => {
