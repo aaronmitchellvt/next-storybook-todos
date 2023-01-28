@@ -1,13 +1,38 @@
 import React, { useState } from "react";
+import { useQuery, useMutation } from "react-query";
+import supabase from "../../lib/supabase";
 
 export interface AddTodoProps {}
 
 const AddTodo: React.FC<AddTodoProps> = () => {
+
+  //Get user id
+  const fetchUser = async () => {
+    const { data } = await supabase.auth.getUser();
+    return data;
+  };
+  const { data } = useQuery("user", () => fetchUser());
+
   const [todo, setTodo] = useState<string>();
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log("submitted");
+    insertTodo(data?.user);
   };
+
+  const insertTodo = async (user: any) => {
+    const { data, error } = await supabase
+      .from("todos")
+      .insert([{ name: todo, isDone: false, user: user.id }]);
+    if (error) throw error
+    return data;
+  };
+
+  //todo use mutation
+  // const postTodo = async (user: any, todo: string) => {
+  //   return useMutation(() => addTodo)
+  // }
+
   return (
     <div className="w-full md:w-3/5 bg-gray-700 mt-3 border-2 border-green-300 rounded">
       <form
