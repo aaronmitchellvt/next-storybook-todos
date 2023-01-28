@@ -30,7 +30,7 @@ const TodosList: React.FC<TodoListProps> = ({ todos }) => {
       <div className="flex flex-col items-center w-full bg-gray-700">
         {notDoneTodos && (
           <>
-            <h1 className="text-2xl text-white underline">Not Done</h1>
+            <h1 className="text-2xl text-white underline font-bold">Todos</h1>
             {notDoneTodos}
           </>
         )}
@@ -38,7 +38,7 @@ const TodosList: React.FC<TodoListProps> = ({ todos }) => {
       <div className="flex flex-col items-center w-full bg-gray-700">
         {doneTodos && (
           <>
-            <h1 className="text-2xl text-white underline">Done</h1>
+            <h1 className="text-2xl text-white underline font-bold">Done</h1>
             {doneTodos}
           </>
         )}

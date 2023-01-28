@@ -9,7 +9,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ name, isDone }) => {
     return (
       <div className="bg-green-200 text-black rounded h-16 border-2 border-gray-900 flex flex-row justify-between items-center my-2 w-full">
         <div className="ml-2 p-2 text-xl">{name}</div>
-          <button className="my-1 p-2 rounded text-black bg-orange-400 hover:bg-orange-300 border-2 border-black mr-3">
+          <button className="my-1 p-2 rounded text-black bg-red-400 hover:bg-red-300 border-2 border-black mr-3">
             Remove
           </button>
       </div>

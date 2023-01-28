@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import AddTodo from '../components/AddTodo/AddTodo'
 import PrimaryLayout from '../components/Layouts/PrimaryLayout'
 import Navbar from '../components/Navbar/Navbar'
 import TodoItem from '../components/TodoItem/TodoItem'
@@ -16,7 +17,8 @@ const Home: NextPageWithLayout = () => {
   ]
 
   return (
-    <div className='text-2xl flex flex-col items-center'>
+    <div className='text-2xl flex flex-col items-center px-2 md:px-0'>
+      <AddTodo />
       <TodosList todos={someTodos}/>
     </div>
   )
