@@ -8,12 +8,12 @@ export interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, isLoading }) => {
   let inputs;
   if (isLoggedIn) {
-    inputs = (
-      <li className="ml-6 md:text-lg text-md">
-        <button className="bg-gray-700 text-green-200 hover:text-green-300 hover:bg-gray-600 rounded p-2 font-bold">
-          Sign Out
-        </button>
-      </li>
+    inputs = (<></>
+      // <li className="ml-6 md:text-lg text-md">
+      //   <button className="bg-gray-700 text-green-200 hover:text-green-300 hover:bg-gray-600 rounded p-2 font-bold">
+      //     Sign Out
+      //   </button>
+      // </li>
     );
   }
   if (!isLoggedIn) {
@@ -21,12 +21,12 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, isLoading }) => {
       <>
         <li className="ml-6 md:text-lg text-md">
           <button className="bg-gray-700 text-green-200 hover:text-green-300 hover:bg-gray-600 rounded p-2 font-bold">
-            <Link href="/auth/login">Sign In</Link>
+            <Link href="/auth/sign-in">Sign In</Link>
           </button>
         </li>
         <li className="ml-6 md:text-lg text-md">
           <button className="bg-green-200 text-gray-800 hover:bg-green-100 hover:text-gray-900 rounded p-2 font-bold">
-            <Link href="/auth/signup">Create Account</Link>
+            <Link href="/auth/create-account">Create Account</Link>
           </button>
         </li>
       </>
