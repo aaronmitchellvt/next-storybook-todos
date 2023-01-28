@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Footer, { FooterProps } from './Footer';
-import { mockFooterProps } from './Footer.mocks';
+import Footer from './Footer';
 
 export default {
   title: 'Components/Footer',
