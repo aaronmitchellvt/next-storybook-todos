@@ -38,7 +38,9 @@ const Home: NextPageWithLayout = () => {
   return (
     <div className="text-2xl flex flex-col items-center px-2 md:px-0">
       <AddTodo />
-      <TodosList todos={todos} />
+      {isError ? 
+        <h1>Sorry, there was an error fetching your todos..</h1> : 
+        <TodosList todos={todos} />}
     </div>
   );
 };

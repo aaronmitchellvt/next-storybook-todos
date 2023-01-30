@@ -24,7 +24,7 @@ const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({ children }) => {
   //What you see in the browser
   let pageContent: React.ReactNode = <></>;
   if (isLoading) {
-    pageContent = <h1>Loading..</h1>;
+    pageContent = <h1 className="text-2xl text-white">Loading..</h1>;
   } else if (!isLoggedIn) {
     pageContent = (
       <>
