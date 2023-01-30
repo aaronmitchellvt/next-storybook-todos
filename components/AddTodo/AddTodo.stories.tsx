@@ -3,7 +3,7 @@ import AddTodo, { AddTodoProps } from './AddTodo';
 import { mockAddTodoProps } from './AddTodo.mocks';
 
 export default {
-  title: 'Components/TodoForm',
+  title: 'Components/Add todo',
   component: AddTodo,
   argTypes: {},
 } as ComponentMeta<typeof AddTodo>;

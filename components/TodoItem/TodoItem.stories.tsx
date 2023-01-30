@@ -3,7 +3,7 @@ import TodoItem, { TodoItemProps } from './TodoItem';
 import { mockTodoItemProps } from './TodoItem.mocks';
 
 export default {
-  title: 'Components/TodoItem',
+  title: 'Components/Todo item',
   component: TodoItem,
   argTypes: {},
 } as ComponentMeta<typeof TodoItem>;
