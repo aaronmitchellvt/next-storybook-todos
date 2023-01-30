@@ -1,15 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TodoItem, { TodoItemProps } from './TodoItem';
+import { TodoItemProps } from './TodoItem';
 import { mockTodoItemProps } from './TodoItem.mocks';
+import MockTodoItem from './MockTodoItem'
 
 export default {
   title: 'Components/TodoItem',
-  component: TodoItem,
+  component: MockTodoItem,
   argTypes: {},
-} as ComponentMeta<typeof TodoItem>;
+} as ComponentMeta<typeof MockTodoItem>;
 
-const Template: ComponentStory<typeof TodoItem> = (args) => (
-  <TodoItem {...args} />
+const Template: ComponentStory<typeof MockTodoItem> = (args) => (
+  <MockTodoItem {...args} />
 );
 
 export const Done = Template.bind({});
