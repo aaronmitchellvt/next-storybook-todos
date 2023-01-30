@@ -24,6 +24,7 @@ const Home: NextPageWithLayout = () => {
           <TodoItem
             name={todo.name}
             isDone={todo.isDone}
+            importanceLevel={todo.importanceLevel}
             id={todo.id}
             key={todo.id}
           />

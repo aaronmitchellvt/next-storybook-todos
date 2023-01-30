@@ -15,15 +15,15 @@ const AddTodo: React.FC<AddTodoProps> = () => {
   };
   const { data, isLoading } = useQuery({
     queryKey: ["user"],
-    queryFn: () => fetchUser()
+    queryFn: () => fetchUser(),
   });
 
   //SQL statement
   const addTodo = async (user: User) => {
     const { data, error } = await supabase
       .from("todos")
-      .insert([{ name: todo, isDone: false, user: user.id }]);
-    if (error) throw error
+      .insert([{ name: todo, isDone: false, user: user.id, importanceLevel: importanceLevel }]);
+    if (error) throw error;
     return data;
   };
 
@@ -31,11 +31,12 @@ const AddTodo: React.FC<AddTodoProps> = () => {
     mutationFn: () => addTodo(data?.user!),
     onSuccess: () => {
       queryClient.invalidateQueries(["todos"]);
-    }
-  })
+    },
+  });
 
   //Submit logic
-  const [todo, setTodo] = useState<string>();
+  const [importanceLevel, setImportanceLevel] = useState<number>(1);
+  const [todo, setTodo] = useState<string>("");
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     console.log("submitted");
@@ -55,9 +56,19 @@ const AddTodo: React.FC<AddTodoProps> = () => {
           value={todo}
           className="ml-3 p-2 h-4/5 rounded w-4/5 mr-1"
         />
-        <button 
+
+        <select
+          value={importanceLevel}
+          onChange={(e) => setImportanceLevel(Number(e.target.value))}
+          className="h-12 mx-2 rounded"
+        >
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+        </select>
+        <button
           className="w-1/5 h-4/5 ml-1 my-1 p-2 rounded text-black bg-orange-400 hover:bg-orange-300 border-2 border-black mr-3"
-          disabled={isLoading}
+          disabled={isLoading || todo === ""}
         >
           Add
         </button>

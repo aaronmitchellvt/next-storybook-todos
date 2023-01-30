@@ -41,8 +41,8 @@ const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({ children }) => {
         <title>Todos</title>
       </Head>
       <div>
-        <Navbar isLoading={isLoading} isLoggedIn={isLoggedIn} />
-        <main className="flex flex-col h-screen justify-between bg-gray-500">
+        <Navbar />
+        <main className="flex flex-col h-screen justify-between bg-gray-400">
           {pageContent}
         </main>
         <Footer />

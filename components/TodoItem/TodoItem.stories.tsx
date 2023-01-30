@@ -22,3 +22,18 @@ export const NotDone = Template.bind({});
 NotDone.args = {
   ...mockTodoItemProps.NotDone,
 } as TodoItemProps;
+
+export const LowLevel = Template.bind({});
+LowLevel.args = {
+  ...mockTodoItemProps.LowImportance,
+} as TodoItemProps;
+
+export const MediumLevel = Template.bind({});
+MediumLevel.args = {
+  ...mockTodoItemProps.MediumImportance,
+} as TodoItemProps;
+
+export const HighLevel = Template.bind({});
+HighLevel.args = {
+  ...mockTodoItemProps.HighImportance,
+} as TodoItemProps;
