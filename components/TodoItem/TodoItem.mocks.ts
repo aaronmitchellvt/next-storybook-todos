@@ -2,15 +2,18 @@ import { TodoItemProps } from './TodoItem';
 
 const Done: TodoItemProps = {
   name: 'Walk the dog',
-  isDone: true
+  isDone: true,
+  id: 1
 };
 
 const NotDone: TodoItemProps = {
   name: 'Taxes',
-  isDone: false
+  isDone: false,
+  id: 2
 };
 
 export const mockTodoItemProps = {
   Done,
-  NotDone
+  NotDone,
+  id: 3
 };

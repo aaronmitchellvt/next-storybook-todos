@@ -2,6 +2,7 @@ import "./global.css";
 import type { AppProps } from "next/app";
 import { NextPageWithLayout } from "./page";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools"
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
       <QueryClientProvider client={queryClient}>
         {getLayout(<Component {...pageProps} />)}
+        <ReactQueryDevtools />
       </QueryClientProvider>
   );
 }

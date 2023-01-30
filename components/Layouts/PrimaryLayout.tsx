@@ -9,14 +9,16 @@ export interface PrimaryLayoutProps
   extends React.ComponentPropsWithoutRef<"div"> {}
 
 const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({ children }) => {
-
   //Get the user from the session, if there is no user then null is returned
   const fetchUser = async () => {
     const { data } = await supabase.auth.getUser();
     return data;
   };
   //Call fetchUser and "wrap" the promise using react query to drive the UI
-  const { data, isLoading, isError } = useQuery("user", () => fetchUser());
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => fetchUser(),
+  });
   const isLoggedIn = data?.user !== null && !isLoading && !isError;
 
   //What you see in the browser
@@ -32,7 +34,7 @@ const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({ children }) => {
   } else if (isLoggedIn) {
     pageContent = children;
   }
-  
+
   return (
     <>
       <Head>
