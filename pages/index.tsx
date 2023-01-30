@@ -7,17 +7,29 @@ import supabase from "../lib/supabase";
 import { NextPageWithLayout } from "./page";
 
 const Home: NextPageWithLayout = () => {
+  
   const fetchTodos = async () => {
     const { data } = await supabase.from("todos").select("*");
     return data;
   };
-  const { data, isLoading, isError } = useQuery("todos", () => fetchTodos());
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["todos"],
+    queryFn: () => fetchTodos(),
+  });
+
   const makeTodoList = () => {
     if (!isLoading && !isError && data) {
       const todos = data?.map((todo) => {
-        return <TodoItem name={todo.name} isDone={todo.isDone} />;
+        return (
+          <TodoItem
+            name={todo.name}
+            isDone={todo.isDone}
+            id={todo.id}
+            key={todo.id}
+          />
+        );
       });
-      return todos
+      return todos;
     }
     return [];
   };
